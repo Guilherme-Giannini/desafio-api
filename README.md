@@ -163,6 +163,24 @@ Refinamentos, ajustes finais e preparação para entrega.
 
 ---
 
+## Como eu faria o deploy do projeto em um servidor Linux
+
+Para colocar esse projeto em produção em um servidor Linux, eu seguiria um processo simples, direto e seguro. A ideia é garantir que a aplicação rode de forma estável, tenha logs centralizados e esteja preparada para reiniciar automaticamente em caso de falhas.
+
+A primeira etapa seria preparar o servidor. Atualizaria os pacotes do sistema e instalaria o .NET 9 Runtime, que é necessário para executar a aplicação. Depois disso, faria a publicação do projeto em modo Release usando o comando `dotnet publish`. Isso gera uma versão otimizada da API, pronta para ser enviada para produção. O conteúdo publicado seria enviado para o servidor, normalmente via SSH, para uma pasta específica como `/var/www/desafioapi`.
+
+Com os arquivos no servidor, eu criaria um usuário dedicado para rodar a aplicação, evitando que ela seja executada como root, o que é uma boa prática de segurança. Em seguida, configuraria um serviço no systemd para que a API fosse executada como um serviço do sistema. Dessa forma, ela iniciaria junto com o servidor e seria reiniciada automaticamente caso ocorresse algum erro.
+
+Se o ambiente exigisse o uso real de lock distribuído, eu instalaria o Redis no servidor. Ele pode ser instalado facilmente pelo gerenciador de pacotes do Linux, e funciona de forma imediata após ativado. Caso o projeto esteja utilizando InMemoryDatabase apenas para testes, isso não seria necessário no ambiente final.
+
+Depois disso, configuraria o Nginx como proxy reverso. O objetivo dessa camada é simples: permitir que a aplicação seja acessada pela porta 80, além de proteger a API e melhorar o controle de tráfego. O Nginx recebe as requisições externas e repassa para a aplicação .NET, que normalmente roda em uma porta interna, como a 5000.
+
+Por fim, faria uma verificação geral: status do serviço, logs, resposta no navegador e funcionamento do Swagger. A partir daí, o deploy estaria concluído. Nas próximas atualizações, bastaria publicar novamente o projeto, enviar os arquivos para o servidor e reiniciar o serviço.
+
+Esse processo garante que o projeto rode de forma organizada, confiável e seguindo boas práticas de deploy para aplicações .NET em ambientes Linux.
+
+---
+
 # Como Executar o Projeto
 
 ## 1. Instalar Dependências
