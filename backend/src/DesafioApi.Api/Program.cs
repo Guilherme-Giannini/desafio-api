@@ -2,6 +2,7 @@ using DesafioApi.Application.Interfaces;
 using DesafioApi.Infrastructure.Data;
 using DesafioApi.Infrastructure.Lock;
 using DesafioApi.Infrastructure.Repositories;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

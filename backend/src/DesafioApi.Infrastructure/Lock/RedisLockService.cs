@@ -1,6 +1,8 @@
-﻿using StackExchange.Redis;
-using Microsoft.Extensions.Logging;
 using DesafioApi.Application.Interfaces;
+
+using Microsoft.Extensions.Logging;
+
+using StackExchange.Redis;
 
 namespace DesafioApi.Infrastructure.Lock;
 

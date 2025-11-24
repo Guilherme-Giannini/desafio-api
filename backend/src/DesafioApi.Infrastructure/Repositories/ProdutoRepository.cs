@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
 using DesafioApi.Application.Interfaces;
 using DesafioApi.Domain.Models;
 using DesafioApi.Infrastructure.Data;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioApi.Infrastructure.Repositories;
 

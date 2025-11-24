@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
 using DesafioApi.Domain.Models;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioApi.Infrastructure.Data;
 

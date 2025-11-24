@@ -1,4 +1,5 @@
-﻿using DesafioApi.Application.Interfaces;
+using DesafioApi.Application.Interfaces;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioApi.Api.Controllers;

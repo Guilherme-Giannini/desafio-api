@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace DesafioApi.Domain.Models;
 
 public class Produto
