@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  app1:
+    build:
+      context: ../  
+      dockerfile: docker/Dockerfile
+    container_name: app1
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      ASPNETCORE_URLS: "http://+:80"
+      Redis__Connection: "redis:6379"
+    ports:
+      - "5290:80"
+    depends_on:
+      - redis
+
+  app2:
+    build:
+      context: ../  
+      dockerfile: docker/Dockerfile
+    container_name: app2
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      ASPNETCORE_URLS: "http://+:80"
+      Redis__Connection: "redis:6379"
+    ports:
+      - "5291:80"
+    depends_on:
+      - redis

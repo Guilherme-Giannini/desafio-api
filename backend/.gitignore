@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build
+bin/
+obj/
+Debug/
+Release/
+*.cache
+*.dll
+*.exe
+*.pdb
+*.log
+*.json.lock
+
+# Rider
+.idea/
+*.sln.iml
+
+# ASP.NET static
+wwwroot/
+
+# Docker
+*.pid

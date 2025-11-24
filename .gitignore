@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build
+bin/
+obj/
+
+# Sistema
+*.log
+*.cache
+
+# Ambiente
+.env
